@@ -1,0 +1,339 @@
+/* VARIABLES */
+:root {
+    --font1: "Barlow", sans-serif;
+    --font2: "Fraunces", serif;
+}
+
+/* GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+// WHOLE CONTENT
+.content {
+    // display: grid;
+    // grid-template-rows: auto auto auto auto 0.916fr 0.916fr;
+    // gap: 0;
+    // ? is grid even necessary at this point?
+}
+
+/* NAV BAR */
+.nav-bar {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+
+    .logo {
+        font-family: var(--font1);
+        font-size: 1rem;
+        color: white;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        padding-left: 50px;
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    .nav-bar-btns {
+        font-family: var(--font2);
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        padding-right: 50px;
+        position: relative;
+        z-index: 1;
+
+        .option-btns {
+            font-family: var(--font1);
+            color: white;
+            display: flex;
+            flex: 1 0 0;
+            margin: 20px;
+            justify-content: space-around;
+            align-items: center;
+            cursor: pointer;
+            &:nth-child(3) {
+                margin-right: 50px;
+            }
+        }
+
+        .contact-btn {
+            font-family: var(--font2);
+            flex: 1 0 0;
+            border-radius: 25px;
+            padding: 15px 25px;
+            background-color: white;
+            color: black;
+            font-size: 0.7rem;
+            cursor: pointer;
+        }
+    }
+}
+
+// HEADING
+.heading {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .wrapper {
+        width: 100%;
+        position: relative;
+        font-size: 0; // * THIS WAS WHAT WAS CAUSING THE GAP
+        .head-img {
+            width: 100%;
+            position: relative;
+            z-index: -2;
+        }
+
+        .heading-title {
+            font-size: 3rem;
+            font-family: var(--font2);
+            letter-spacing: 10px;
+            color: white;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .arrow {
+            position: absolute;
+            top: 57%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            width: 2rem;
+            cursor: pointer;
+            transition: all 0.5s; 
+        }
+    }
+}
+
+// ROWS
+.row1,
+.row2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .text-card {
+        flex: 1 0 0;
+        position: relative;
+
+        .texts {
+            width: 60%;
+            position: absolute;
+            top: 50%;
+            left: 58%;
+            transform: translate(-50%, -50%);
+
+            h1,
+            h2,
+            p {
+                text-align: left;
+            }
+            h1 {
+                font-family: var(--font2);
+                margin: 20px 0;
+            }
+            p {
+                font-family: var(--font1);
+                opacity: 0.6;
+                margin: 20px 0;
+            }
+            h2 {
+                width: 6.8rem;
+                padding: 15px;
+                border-radius: 10px;
+                font-family: var(--font2);
+                font-size: 0.8rem;
+                text-indent: 5px;
+                transition: text-indent 0.5s, box-shadow 0.5s;
+
+                &::after {
+                    display: block;
+                    content: "";
+                    border: 2px solid yellow;
+                    border-radius: 25px;
+                    overflow: hidden;
+                    width: 6.5rem;
+                    position: relative;
+                }
+                &:hover {
+                    text-indent: 15px;
+                }
+                cursor: pointer;
+            }
+        }
+        .texts.second {
+            top: 50%;
+            left: 42%;
+            h2::after {
+                border-color: pink;
+            }
+        }
+    }
+    img {
+        flex: 1 0 0;
+        width: 100%;
+    }
+}
+
+.row3 {
+    display: flex;
+    position: relative;
+
+    .image-text-card {
+        font-size: 0; // * THIS WAS WHAT WAS CAUSING THE GAP
+        flex: 1 0 0;
+        position: relative;
+        img {
+            width: 100%;
+        }
+        .texts {
+            position: absolute;
+            top: 72%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 56%;
+
+            h1,
+            p {
+                color: hsl(167, 40%, 24%);
+            }
+            h1 {
+                font-family: var(--font2);
+                font-size: 1.75rem;
+                margin: 30px 0;
+            }
+            p {
+                font-family: var(--font1);
+                font-size: 0.9rem;
+                line-height: 1.75;
+            }
+        }
+    }
+}
+
+// TESTIMONIALS
+.testimonials {
+    background-color: hsla(210, 4%, 67%, 0.15);
+    padding: 130px 15% 130px;
+
+    .testimonials-heading {
+        font-family: var(--font2);
+        font-size: 1.2rem;
+        letter-spacing: 6px;
+        color: hsla(213, 9%, 39%, 0.7);
+        margin-bottom: 100px;
+    }
+
+    .testimonial-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+
+        .testimonial-card {
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            justify-items: center;
+            align-items: center;
+            gap: 30px;
+            img {
+                border-radius: 50%;
+                width: 20%;
+            }
+
+            img + p {
+                font-family: var(--font1);
+                font-size: 0.8rem;
+                line-height: 2;
+                opacity: 0.7;
+            }
+
+            .name h2 {
+                font-family: var(--font2);
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+            .name p {
+                font-family: var(--font1);
+                font-size: 0.8rem;
+                color: hsla(213, 9%, 39%, 0.5);
+            }
+        }
+    }
+}
+
+// 4 IMAGES ROW
+.row4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    img {
+        width: 100%;
+    }
+}
+
+// FOOTER
+.footer {
+    background-color: hsla(168, 34%, 41%, 0.68);
+    padding: 40px;
+
+    .footer-title {
+        font-family: var(--font1);
+        font-size: 2rem;
+        color: hsl(167, 40%, 24%);
+        margin-bottom: 30px;
+    }
+
+    .options {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: auto auto auto;
+        width: 25%;
+        margin-inline: auto;
+        margin-bottom: 60px;
+        .option {
+            font-family: var(--font1);
+            font-size: 1rem;
+            color: hsla(167, 40%, 24%, 0.6);
+            cursor: pointer;
+        }
+    }
+    .social-icons {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: auto auto auto auto;
+        margin-inline: auto;
+        justify-items: center;
+        width: 15%;
+        gap: 10px;
+        margin-bottom: 20px;
+
+        img {
+            width: 50%;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+// ARROW BOUNCE ANIMATION
+.arrow {
+    &:hover {
+        animation: bounce 0.7s infinite cubic-bezier(0, 0.58, 0.57, 0.99);
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes bounce {
+    50% {
+        top: 52%;
+        animation-timing-function: cubic-bezier(0.43, 0.01, 1, 0.42);
+    }
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+// LEARN MORE BUTTON BOX SHADOW LIFT UP ANIMATION
+.box-shadow-lift-up {
+    box-shadow: 0 0 10px 1px rgba(168, 168, 168, 0.3);
+}
+
+// ARROW BOUNCE ANIMATION IMPROVEMENT: 
+    // trying to avoid the sudden jump upon exiting hover state 
+    // can omiting 0% {} be a clever choise? yes.
+    // * since you don't have 0% binded to a certain value, it can start its animation from any place
+    // * it is positioned.
+    // exit hover --> bring back to top and left original coords --> if hover again, 
+    // the animation will start from that location and make its way toward top: 52% of 50%
+    // right? 
+.back-to-place {
+    top:57%;
+}
